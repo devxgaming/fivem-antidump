@@ -16,7 +16,7 @@ function BanPlayer(src, reason)
         banTime,
         GetPlayerName(src)
     })
-    DropPlayer(src, 'لقد تم حظرك نهائيا من السيرفر السبب:\n'.. reason ..'\n للمزيد من المعلومات يرجى التوجه الى الديسكورد: https://discord.gg/FbVmdspcCP')
+    DropPlayer(src, 'You has been banned from server reason:\n'.. reason ..'\n for more information join discord: https://discord.gg/FbVmdspcCP')
     TriggerEvent('qb-log:server:CreateLog', 'bans', 'Player Banned', 'red', string.format('%s was banned by %s for %s', GetPlayerName(src), "DevX-Antidump", reason), true)
 end
 
