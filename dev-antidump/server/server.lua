@@ -20,9 +20,16 @@ function BanPlayer(src, reason)
     TriggerEvent('qb-log:server:CreateLog', 'bans', 'Player Banned', 'red', string.format('%s was banned by %s for %s', GetPlayerName(src), "DevX-Antidump", reason), true)
 end
 
+function isFileExists(path)
+    local file = io.open(path, 'r')
+    if file ~= nil then io.close(file) return true else return false end
+end
 
 function LoadFile(path)
-    local res = GetCurrentResourceName()
+    if not isFileExists(path) then
+        print('error: dev-antidump, can not find file on path: '.. path)
+        return
+    end
     local file = io.open(path, 'r')
     local content = file:read('*a')
     io.close(file)
