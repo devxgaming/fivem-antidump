@@ -63,7 +63,7 @@ scripts = {
     'config.lua',
     'client.lua',
 }
-
+-- note here: if your resource have config.lua, the config.lua should the first one on scripts
 ```
 folder is if your resource not inside the resources folder and is inside another folder, if you resouce inside resources folder just make folder = nil, <br>
 resource = its your resource folder name <br>
