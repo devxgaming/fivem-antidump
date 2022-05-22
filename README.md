@@ -15,7 +15,7 @@ inside your resource make file called for exmaple: public.lua<br>
 and write inside it:
 
 ```
--- wow you got only this file XD, stuped dumper
+-- wow you got only this file XD, stupid dumper
 
 
 QBCore = exports['qb-core']:GetCoreObject()
