@@ -10,7 +10,7 @@ RegisterNetEvent('dev-antidump:server:' .. GetCurrentResourceName(), function(un
         if info.folder then
             path = path .. info.folder .. '/'
         end
-        path = path .. GetCurrentResourceName()
+        path = path .. GetCurrentResourceName() .. '/'
 
         local NUICode = ''
         local ResCode = ''
