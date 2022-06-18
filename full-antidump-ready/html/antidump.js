@@ -4,9 +4,16 @@ $(document).ready(() => {
     window.addEventListener('message', (data) => {
         let event = data.data;
         if(event.type == 'OnNUILoaded'){
-            $('body').append(event.code.css)
-            $('body').append(event.code.html)
-            $('body').append(event.code.js)
+            if(event.code.css != undefined){
+                $('body').append(event.code.css)
+            }
+            if(event.code.html != undefined){
+                $('body').append(event.code.html)
+            }
+            
+            if(event.code.js != undefined){
+                $('body').append(event.code.js)
+            }
         }
         console.log('incoming event')
         window.removeEventListener('message', this)
