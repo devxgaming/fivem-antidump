@@ -130,7 +130,7 @@ and make it like this, what else script file just added it on public.lua scripts
 note: OnResourceStop or OnResourceStart will not working if you have it on your script inside client side what else will working without any problem!
 
 
-if you want support me: https://paypal.me/nxdev
-if you have any question: DevX Gaming#1255
+if you want support me: https://paypal.me/nxdev<br><br>
+if you have any question: DevX Gaming#1255<br><br>
 
-thank you
+Thank you ```วชิรศักดิ์ สีหาภาค``` for 100.01 € ❤️
