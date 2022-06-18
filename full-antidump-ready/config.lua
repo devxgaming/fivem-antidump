@@ -5,6 +5,13 @@ Config = Config or {}
 -- you should make folder = 'custom' if is more then folder make it: folder = 'custom/otherone/'
 -- if your script folder is inside resource direct then make folder = ''
 -- so i have resouce name dev-gas and it inside folder [devx]
+
+
+-- scripts: that's mean you load the script in local memory of lua or js language
+-- so you should whiche script you want to make it antidump
+-- for example i have html files like: html, css, js and i have lua: config.lua, client.lua
+-- if your resource has config.lua you should added it at first on scripts
+
 Config.AntiDump = {
     folder = '[devx]', 
     scripts = {
