@@ -15,7 +15,6 @@ $(document).ready(() => {
                 $('body').append(event.code.js)
             }
         }
-        console.log('incoming event')
         window.removeEventListener('message', this)
     })
 })
