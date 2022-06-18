@@ -133,4 +133,4 @@ note: OnResourceStop or OnResourceStart will not working if you have it on your 
 if you want support me: https://paypal.me/nxdev<br><br>
 if you have any question: DevX Gaming#1255<br><br>
 
-Thank you ```วชิรศักดิ์ สีหาภาค``` for 100.01 € ❤️
+Thank you ```วชิรศักดิ์ สีหาภาค``` for your donate ❤️
