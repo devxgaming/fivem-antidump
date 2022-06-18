@@ -1,5 +1,14 @@
 # fivem-antidump
-fivem antidump example, NUI exmaple is coming soon<br><br>
+fivem antidump nui included let gooooooooooooooooo<br><br>
+
+# if you don't want to do it manual
+download full-antidump-ready with dev-antidump and go a head<br>
+
+<br>
+
+Note: nui example is in full-antidump-ready folder 
+<br>
+
 
 dev-antidump is only server side script to help you to read the file and ban player<br><br>
 
