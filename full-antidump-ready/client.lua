@@ -7,3 +7,9 @@
 --        TriggerEvent('YourTriggerOnClient.lua') 
 --    end 
 -- end)
+
+
+-- note: if your code has error in runtime, it's will print full code on client side, so make sure that your script code has not any error.
+
+-- If you ask me: There is no resource without any error. 
+-- I will answer: there is a resource without any error, you find out why you are getting this error on your code!!
