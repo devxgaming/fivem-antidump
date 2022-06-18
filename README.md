@@ -1,5 +1,5 @@
 # fivem-antidump
-fivem antidump nui included let gooooooooooooooooo<br><br>
+fivem antidump nui included lets gooooooooooooooooo<br><br>
 
 # if you don't want to do it manual
 download full-antidump-ready with dev-antidump and go a head<br>
