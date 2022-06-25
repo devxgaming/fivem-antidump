@@ -130,9 +130,11 @@ server_scripts {
 and make it like this, what else script file just added it on public.lua scripts = {'filename.lua', 'otherone.lua', 'etc.lua'} to load into client side
 
 note: OnResourceStop or OnResourceStart will not working if you have it on your script inside client side what else will working without any problem!
+<br>
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A7DG8B4)<br>
+<br>
+Paypal: https://paypal.me/nxdev<br><br>
 
-
-if you want support me: https://paypal.me/nxdev<br><br>
 if you have any question: DevX Gaming#1255<br><br>
 
 Thank you ```วชิรศักดิ์ สีหาภาค``` for your donate ❤️
