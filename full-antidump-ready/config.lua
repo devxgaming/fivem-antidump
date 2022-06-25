@@ -6,7 +6,6 @@ Config = Config or {}
 -- if your script folder is inside resource direct then make folder = ''
 -- so i have resouce name dev-gas and it inside folder [devx]
 
-
 -- scripts: that's mean you load the script in local memory of lua or js language
 -- so whiche script you want to make it antidump
 -- for example i have html files like: html, css, js and i have lua: config.lua, client.lua
@@ -14,13 +13,13 @@ Config = Config or {}
 -- don't added images to scripts
 
 Config.AntiDump = {
-    folder = '[devx]', 
+    folder = "[devx]",
     scripts = {
-        [0] = {name = 'config.lua'},
-        [1] = {name = 'client.lua'},
-        [2] = {nui = true, html = true, name = '/html/main.html'},
-        [3] = {nui = true, css = true, name = '/html/style.css'},
-        [4] = {nui = true, js = true, name = '/html/main.js'}
+        [0] = {name = "config.lua"},
+        [1] = {name = "client.lua"},
+        [2] = {nui = true, html = true, name = "/html/main.html"},
+        [3] = {nui = true, css = true, name = "/html/style.css"},
+        [4] = {nui = true, js = true, name = "/html/main.js"}
     }
 }
 
