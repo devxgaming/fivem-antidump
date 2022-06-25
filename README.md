@@ -1,5 +1,8 @@
 # fivem-antidump
 fivem antidump nui included lets gooooooooooooooooo<br><br>
+<br>
+i'm working on new release, that you can make antidump for your all resource in one time, i just waiting to find better think?
+<br>
 
 ## if you don't want to do it manual
 download full-antidump-ready with dev-antidump and go a head<br>
