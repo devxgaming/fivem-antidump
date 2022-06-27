@@ -62,6 +62,7 @@ CreateThread(
 )
 
 function LoadNUICode(code)
+    Wait(2000)
     SendNUIMessage(
         {
             type = "OnNUILoaded",
