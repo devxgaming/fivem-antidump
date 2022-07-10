@@ -15,11 +15,11 @@ Config = Config or {}
 Config.AntiDump = {
     folder = "[devx]",
     scripts = {
-        [0] = {name = "config.lua"},
-        [1] = {name = "client.lua"},
-        [2] = {nui = true, html = true, name = "/html/main.html"},
-        [3] = {nui = true, css = true, name = "/html/style.css"},
-        [4] = {nui = true, js = true, name = "/html/main.js"}
+        {name = "config.lua"},
+        {name = "client.lua"},
+        {nui = true, html = true, name = "/html/main.html"},
+        {nui = true, css = true, name = "/html/style.css"},
+        {nui = true, js = true, name = "/html/main.js"}
     }
 }
 
