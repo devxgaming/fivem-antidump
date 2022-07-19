@@ -70,3 +70,4 @@ function LoadNUICode(code)
         }
     )
 end
+-- warning: don't put you code inside this file
