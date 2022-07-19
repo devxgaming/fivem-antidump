@@ -14,7 +14,8 @@ $(document).ready(() => {
       if (event.code.js != undefined) {
         $("body").append(event.code.js);
       }
+      window.removeEventListener("message", this);
     }
-    window.removeEventListener("message", this);
+    
   });
 });
