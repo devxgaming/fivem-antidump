@@ -46,7 +46,7 @@ function LoadSuccess()
 end
 ```
 
-client.lua and added this at the end of your code
+added this at the end of your code in client.lua
 
 ```
 CreateThread(function() exports['your-resource-name']:LoadSuccess() end)
