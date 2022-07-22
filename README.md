@@ -12,7 +12,7 @@ dev-antidump is only server side, can read the file and ban players
 
 # fixed
 
-sometime the trigger OnPlayerLoaded or player spawn send to client side but antidump was not loaded the scripts because of ```[framework, ping, bad connection]```. and your scripts not working on the player, so i have fix the problem by add some code on client.lua and public.lua
+sometime the trigger OnPlayerLoaded or player spawn send to client side but antidump was not loaded the scripts because of ```[framework load player fast, ping, bad connection]```. and your scripts not working on the player, so i have fix the problem by add some code on client.lua and public.lua
 
 for example:
 
