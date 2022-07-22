@@ -1,143 +1,48 @@
-# fivem-antidump
-fivem antidump nui included lets gooooooooooooooooo<br><br>
+# fivem-antidump client side + nui
+
+
+please download dev-antidump with full-antidump-ready
+<br><br>
+full-antidump-ready is ready resource, you can put your code inside it and after finish change the folder name to your resource name<br>
 <br>
-i'm working on new release, that you can make antidump for your all resource in one time, i just waiting to find better think?
-<br>
-
-## if you don't want to do it manual
-download full-antidump-ready with dev-antidump and go a head<br>
-
-<br>
-
-## Manual
-
-Note: nui example is in full-antidump-ready folder 
+the description is inside files, so make sure you open all file in full-antidump-ready before you store your code inside it.<br><br>
+dev-antidump is only server side, can read the file and ban players
 <br>
 
 
-dev-antidump is only server side script to help you to read the file and ban player<br><br>
+# fixed
 
-just download it and start it inside server config<br><br>
+sometime the trigger OnPlayerLoaded or player spawn send to client side but antidump was not loaded the scripts because of Ping? or bad connection. and your scripts not working on the player, so i have fix the problem by add some code on client.lua and public.lua
 
-now let's go to explain how to make antidump file<br><br>
+for example:
 
-
-for example you have resource name called: dev-sit<br>
-and the resource has files for example: **client.lua, config.lua, server.lua, fxmanifest.lua or maybe only  client.lua and config.lua and fxmanifest.lua** etc...<br><br>
-
-inside your resource make file called for exmaple: public.lua<br>
-and write inside it:
-
+inside public.lua
 ```
--- wow you got only this file XD, stupid dumper
+local WaitUntilLoaded = true
 
-
-
-local lower_abc = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
-local upper_abc = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}
-
-
-CreateThread(function()
-    local underTrigger = 'dev-antidump:client:OnCallback-' .. GetCurrentResourceName() .. '-'
-    underTrigger = underTrigger .. lower_abc[math.random(#lower_abc)]
-    underTrigger = underTrigger .. lower_abc[math.random(#lower_abc)]
-    underTrigger = underTrigger .. lower_abc[math.random(#upper_abc)]
-    underTrigger = underTrigger .. lower_abc[math.random(#upper_abc)]
-    underTrigger = underTrigger .. tostring(math.random(10000, 99999)) .. '-'
-    underTrigger = underTrigger .. tostring(math.random(10000, 99999)) .. '-'
-    underTrigger = underTrigger .. tostring(math.random(10000, 99999)) .. '-'
-    underTrigger = underTrigger .. lower_abc[math.random(#lower_abc)]
-    underTrigger = underTrigger .. lower_abc[math.random(#lower_abc)]
-    underTrigger = underTrigger .. lower_abc[math.random(#upper_abc)]
-    underTrigger = underTrigger .. lower_abc[math.random(#upper_abc)]
-    underTrigger = underTrigger .. tostring(math.random(10000, 99999)) .. '-'
-    underTrigger = underTrigger .. tostring(math.random(10000, 99999)) .. '-'
-    underTrigger = underTrigger .. tostring(math.random(10000, 99999)) .. '-end'
-    RegisterNetEvent(underTrigger, function(data)
-        load(data)()
+-- change the event when player loaded or player spwan like your framework. i use here QBCore
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
+    CreateThread(function()
+        while WaitUntilLoaded do Wait(0) end
+        TriggerEvent('YourTriggerNameInsideClient.lua')
+        -- or triggerServerEvent
+        -- please don't use same event name on all your resource if is client side and is inside client.lua, use like: resource-name:client:OnPlayerLoaded
+        -- if you use same event name, think about how many resource you have and how manytime it's will send the trigger
     end)
-    TriggerServerEvent('dev-antidump:server:' .. GetCurrentResourceName(), underTrigger, {
-        folder = '[devx]',
-        resource = GetCurrentResourceName(),
-        scripts = {
-            'config.lua',
-            'main.lua',
-        }
-    })
 end)
+
+function LoadSuccess()
+    WaitUntilLoaded = false
+end
 ```
 
-so i want to tell you about this line of code inside public.lua 
-```
-folder = '[devx]',
-resource = GetCurrentResourceName(),
-scripts = {
-    'config.lua',
-    'client.lua',
-}
--- note here: if your resource have config.lua, the config.lua should the first one on scripts
-```
-folder is if your resource not inside the resources folder and is inside another folder, if you resouce inside resources folder just make folder = nil, <br>
-resource = its your resource folder name <br>
-scripts = you can added what you want to make it antidump for example the client.lua and config.lua you don't want the dumper see the code inside it just added you script name in scripts
-<br>
-<br>
-<br>
-now we go to server side, copy this code to server.lua if not exists just create file server.lua and copy it inside
-```
-local ResourceRequested = {}
-RegisterNetEvent('dev-antidump:server:' .. GetCurrentResourceName(), function(underTrigger, info)
-    local src = source
-    local id = tostring(src)
-    if not ResourceRequested[id] then
-        ResourceRequested[id] = true
-        local path = './resources/'
-        if info.folder then
-            path = path .. info.folder .. '/'
-        end
-        path = path .. info.resource .. '/'
-        for _, file in pairs(info.scripts) do
-            local script = path .. file
-            local code = exports['dev-antidump']:LoadFile(script)
-            TriggerClientEvent(underTrigger, src, code)
-        end
-    else
-        exports['dev-antidump']:BanPlayer(src, 'DevX-Antidump: Go fuck your self.')
-    end
-end)
-```
-
-
-now you have save your resouce from dumper<br>
-
-the last one, you should remove every client script and shared_script from fxmanifest and just added public.lua for client side for example<br>
-
-open your fxmanifest.lua
+so we go to client.lua and added this at the end of your code
 
 ```
-fx_version "adamant"
-
-game "gta5"
-
-
-client_script "public.lua"
-
-
-server_scripts {
-    "server.lua",
-    'config.lua'
-}
+CreateThread(function() exports['your-resource-name']:LoadSuccess() end)
 
 ```
 
-and make it like this, what else script file just added it on public.lua scripts = {'filename.lua', 'otherone.lua', 'etc.lua'} to load into client side
-
-note: OnResourceStop or OnResourceStart will not working if you have it on your script inside client side what else will working without any problem!
-<br><br><br>
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A7DG8B4)<br>
-<br>
-Paypal: https://paypal.me/nxdev<br><br>
-
-if you have any question: DevX Gaming#1255<br><br>
+and you ready to go.
 
 Thank you ```วชิรศักดิ์ สีหาภาค``` for your donate ❤️
