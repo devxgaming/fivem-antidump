@@ -5,7 +5,7 @@ please download dev-antidump with full-antidump-ready
 <br><br>
 full-antidump-ready is ready resource, you can put your code inside it and after finish change the folder name to your resource name<br>
 <br>
-the description is inside files, so make sure you open all file in full-antidump-ready before you store your code inside it.<br><br>
+the description is inside files, so make sure to open all file in full-antidump-ready and read it before you store your code inside it.<br><br>
 dev-antidump is only server side, can read the file and ban players
 <br>
 
