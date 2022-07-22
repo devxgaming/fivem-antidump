@@ -59,6 +59,12 @@ and you ready to go.
 <br><br>
 Note: i didn't added this code inside full-antidump-ready you should do it manuel.
 
+# contact with me
+
+Discord: DevX Gaming#1255
+
+Paypal: https://paypal.me/nxdev
+
 # Donate
 
 Thank you ```วชิรศักดิ์ สีหาภาค``` for your donate ❤️
