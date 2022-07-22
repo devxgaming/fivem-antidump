@@ -1,7 +1,7 @@
 # fivem-antidump client side + nui
 
 
-please download dev-antidump with full-antidump-ready
+please download ```dev-antidump``` with ```full-antidump-ready```
 <br><br>
 full-antidump-ready is ready resource, you can put your code inside it and after finish change the folder name to your resource name<br>
 <br>
