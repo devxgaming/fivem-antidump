@@ -31,6 +31,16 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     end)
 end)
 
+AddEventHandler('onResourceStart', function(resource)
+    if resource == GetCurrentResourceName() then
+        Wait(100)
+        CreateThread(function()
+            while WaitUntilLoaded do Wait(0) end
+            TriggerEvent('YourTriggerNameInsideClient.lua')
+        end)
+    end
+end)
+
 function LoadSuccess()
     WaitUntilLoaded = false
 end
