@@ -82,7 +82,7 @@ function LoadFile(path)
     if not doesFileExist(path) then
         print("[dev-antidump] Error: cannot find file in path: " .. path)
 
-        return
+        return ''
     end
 
     local file = io.open(path, "r")
