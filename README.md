@@ -17,7 +17,7 @@ sometime the trigger OnPlayerLoaded or player spawn send to client side but anti
 for example:
 
 inside public.lua
-```
+```lua
 local WaitUntilLoaded = true
 
 -- change the event when player loaded or player spwan like your framework. i use here QBCore
@@ -50,7 +50,7 @@ exports('LoadSuccess', LoadSuccess)
 
 added this at the last line of your code in client.lua
 
-```
+```lua
 CreateThread(function() exports['your-resource-name']:LoadSuccess() end)
 
 ```
