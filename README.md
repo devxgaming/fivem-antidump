@@ -44,6 +44,8 @@ end)
 function LoadSuccess()
     WaitUntilLoaded = false
 end
+
+exports('LoadSuccess', LoadSuccess)
 ```
 
 added this at the last line of your code in client.lua
