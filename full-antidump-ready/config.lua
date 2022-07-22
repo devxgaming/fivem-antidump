@@ -1,4 +1,4 @@
-Config = Config or {}
+DevConfig = Config or {}
 
 -- folder is: script folder name, for example: if your resource not inside resources folder then added the folder that your script inside it, for example like this path:
 -- resources/custom/yourscript/files. .. . .
@@ -12,7 +12,7 @@ Config = Config or {}
 -- if your resource has config.lua you should added it at first on scripts
 -- don't added images to scripts
 
-Config.AntiDump = {
+DevConfig.AntiDump = {
     folder = "[devx]",
     scripts = {
         {name = "config.lua"},
