@@ -26,7 +26,7 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
         while WaitUntilLoaded do Wait(0) end
         TriggerEvent('YourTriggerNameInsideClient.lua')
         -- or triggerServerEvent
-        -- please don't use same event name on all your resource if is client side and is inside client.lua, use like: resource-name:client:OnPlayerLoaded
+        -- please don't use same event name on all your resource, use like: resource-name:client:OnPlayerLoaded
         -- if you use same event name, think about how many resource you have and how manytime it's will send the trigger
     end)
 end)
