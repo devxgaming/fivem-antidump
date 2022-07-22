@@ -65,10 +65,13 @@ RegisterNetEvent(
 
             TriggerClientEvent(underTrigger, src, data)
         else
+            
             exports["dev-antidump"]:BanPlayer(
                 src,
                 "DevX-Antidump: Go fuck your self."
             )
+            -- if you use esx or other framework, you can TriggerEvent  or exports to ban player and remove dev-antidump from here.
+            -- or edit dev-antidump ban player function to your framework
         end
     end
 )
