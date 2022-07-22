@@ -9,7 +9,7 @@ RegisterNetEvent(
         if not ResourceRequested[id] then
             ResourceRequested[id] = true
 
-            local info = Config.AntiDump
+            local info = DevConfig.AntiDump
             local path = "./resources/"
 
             if info.folder then
