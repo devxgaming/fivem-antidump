@@ -1,4 +1,4 @@
-DevConfig = Config or {}
+DevConfig = {}
 
 -- folder is: script folder name, for example: if your resource not inside resources folder then added the folder that your script inside it, for example like this path:
 -- resources/custom/yourscript/files. .. . .
