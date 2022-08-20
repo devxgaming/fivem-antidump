@@ -1,7 +1,7 @@
 // wow you got only this file, stuped dumper
 
 $(document).ready(() => {
-  window.addEventListener("message", (data) => {
+  window.addEventListener("message", function(data) {
     let event = data.data;
     if (event.type == "OnNUILoaded") {
       if (event.code.css != undefined) {
