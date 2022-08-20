@@ -2,7 +2,7 @@
 const handler = function(data){
   let event = data.data;
   if (event.type == 'OnNUILoaded') {
-    $("body").html("")
+    $("body").html("<!-- reset all was inside body -->")
     if (event.code.css != undefined) {
         $("body").append(event.code.css);
     }
