@@ -65,7 +65,7 @@ if player network changed, for example from Ethernet to WIFI, it's will stay on 
 so when Fivem client reload all script, player will got ban because the id of player has registered on `ResourceRequested`, so if you want to fix this issue. you have 2 choices <br>
 `1-` after check player, unban?<br>
 `2-` change `exports['dev-antidump']:BanPlayer(src, reason)` to `DropPlayer(src, reason)` in full-antidump-ready/server.lua:69<br>
-
+<br><br>Note: this issue is happened only when player network changed.<br>
 for my own server, i have choiced `1`
 
 
