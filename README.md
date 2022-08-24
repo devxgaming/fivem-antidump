@@ -59,6 +59,16 @@ and you ready to go.
 <br><br>
 Note: i didn't added this code inside full-antidump-ready you should do it manuel.
 
+
+## new issue
+if player has bad connection or player network changed, for example from Ethernet to WIFI, it's will stay on the server, but [sometimes] Fivem reload all client script
+so when Fivem client reload all script, player will got ban because the id of player has registered on `ResourceRequested`, so if you want to fix this issue. you have 2 choices <br>
+`1-` after check player, unban?<br>
+`2-` change `exports['dev-antidump']:BanPlayer(src, reason)` to `DropPlayer(src, reason)` in full-antidump-ready/server.lua:69<br>
+
+for my own server, i have choiced `1`
+
+
 # contact with me
 
 Discord: DevX Gaming#1255
