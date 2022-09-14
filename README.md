@@ -9,6 +9,8 @@ the description is inside files, so make sure to open all file in full-antidump-
 ```dev-antidump``` is only server side, can read the file and ban players
 <br>
 
+## I recommend using it together
+https://github.com/QamarQ/nui_blocker
 
 # fixed
 
