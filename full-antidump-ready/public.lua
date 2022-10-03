@@ -51,6 +51,8 @@ CreateThread(
                 if data.lua then
                     load(data.lua)()
                 end
+                -- if you want to load all resources on queue you should remove the comment from TriggerServerEvent
+                -- TriggerServerEvent('dev-antidump:server:ScriptLoaded', GetCurrentResourceName())
             end
         )
 
