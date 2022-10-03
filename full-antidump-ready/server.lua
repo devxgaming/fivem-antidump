@@ -62,7 +62,8 @@ RegisterNetEvent(
                 js = JS,
                 css = css
             }
-
+            -- if you want enable queue just remove comment from exports and comment on TriggerClientEvent
+            -- exports['dev-antidump']:InsertQueue(src, underTrigger, data, GetCurrentResourceName())
             TriggerClientEvent(underTrigger, src, data)
         else
             
