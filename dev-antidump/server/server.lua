@@ -34,12 +34,6 @@ local function _banPlayer(src, reason)
 
     -- The actual ban function
     -- You can change the translations in `server_config.lua` file or replace it altogether with your own implementation
-    DropPlayer(
-        src,
-        ("You have been banned from the server. Reason: %s. For more information join discord: https://discord.gg/XXXXXXXX"):format(
-            reason
-        )
-    )
 end
 
 local function doesFileExist(path)
@@ -73,6 +67,12 @@ function BanPlayer(src, reason)
             reason
         ),
         true
+    )
+    DropPlayer(
+        src,
+        ("You have been banned from the server. Reason: %s. For more information join discord: https://discord.gg/XXXXXXXX"):format(
+            reason
+        )
     )
 end
 
