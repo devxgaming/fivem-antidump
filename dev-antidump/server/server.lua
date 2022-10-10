@@ -19,18 +19,16 @@ local function _banPlayer(src, reason)
     -- You don't have to do that and use your own banning system
     MySQL.ready(
         function()
-            MySQL.Async.insert(
-                "INSERT INTO bans (name, license, discord, ip, reason, expire, bannedby) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                {
-                    GetPlayerName(src),
-                    QBCore.Functions.GetIdentifier(src, "license"),
-                    QBCore.Functions.GetIdentifier(src, "discord"),
-                    QBCore.Functions.GetIdentifier(src, "ip"),
-                    reason,
-                    os.date(""),
-                    GetPlayerName(src)
-                }
-            )
+            MySQL.insert('INSERT INTO bans (name, license, discord, ip, reason, expire, bannedby) VALUES (?, ?, ?, ?, ?, ?, ?)',
+            {
+                GetPlayerName(src),
+                QBCore.Functions.GetIdentifier(src, 'license'),
+                QBCore.Functions.GetIdentifier(src, 'discord'),
+                QBCore.Functions.GetIdentifier(src, 'ip'),
+                reason,
+                2147483647,
+                'DevX-Antidump'
+            })
         end
     )
 
