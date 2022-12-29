@@ -71,6 +71,40 @@ so when Fivem client reload all script, player will got ban because the id of pl
 for my own server, i have choiced `1`
 
 
+# note
+a lot of people adding more resource inside `full-antidump-ready` config, for example `config1.lua` `config2.lua` `client.lua` `client2.lua`<br>
+and his adding me on discord to asking about where is error?<br><br>
+please don't load more resource in one full-antidump-ready because of:
+
+* your script will not working
+* if is working can client side take timeout disconnect.
+
+why is not working?
+let we say you have 2 config file for 2 resource.<br>
+if you load config 1 there is no problem<br>
+but when antidump load config 2 it removing the config 1 because your config 2 also has `config = {}`<br>
+now you say ok i will remove `config = {}` from the config 2, yes but there another problem if your config has same key in config 2 it will replaced to config 2 for example
+
+config 1:
+```lua
+config = {}
+
+config.position = Vector3(0, 0, 0)
+
+```
+
+config 2:
+```lua
+config.position = vectro3(0, 0, 0)
+
+```
+here position in config 1 will replaced also to position in config 2<br>
+
+
+so please don't load 2 resource in one `full-antidump-ready`, just copy `full-antidump-ready` and make another one for other resources
+
+if your player taking timeout disconnect, just use queue it will resolve the problem, information about queue is on server.lua in `full-antidump-ready`, and make sure to update `dev-antidump`
+
 # contact with me
 
 Discord: DevX Gaming#1255
