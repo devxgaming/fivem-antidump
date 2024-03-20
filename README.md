@@ -107,7 +107,7 @@ if your player taking timeout disconnect, just use queue it will resolve the pro
 
 # contact with me
 
-Discord: DevX Gaming#1255
+Discord: @devxgaming
 
 # Donate
 Paypal: https://paypal.me/nxdev
