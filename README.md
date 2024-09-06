@@ -1,24 +1,24 @@
-# fivem-antidump client side + nui
+# Fivem-antidump client side + nui
 
 
-please download ```dev-antidump``` with ```full-antidump-ready```
-<br><br>
-```full-antidump-ready``` is ready resource, you can put your code inside it and after finish change the folder name to your resource name<br>
+Please download the ```dev-antidump``` alongside the ```full-antidump-ready``` resource.
+
+* full-antidump-ready is a ready-to-use resource. You can place your code inside it, and once you're done, change the folder name to your resource name.
+
+* The description and instructions are inside the files, so make sure to open and read all the files in full-antidump-ready before adding your code.
+
+* dev-antidump is server-side only, and it can read files and ban players.
+
 <br>
-the description is inside files, so make sure to open all file in full-antidump-ready and read it before store your code inside it.<br><br>
-```dev-antidump``` is only server side, can read the file and ban players
-<br>
 
-## I recommend using it together
+# I recommend using these together.
 https://github.com/QamarQ/nui_blocker
 
-# fixed
+# Fixed
 
-sometime the trigger OnPlayerLoaded or player spawn send to client side but antidump was not loaded the scripts because of ```[framework load player fast, ping, bad connection]```. and your scripts not working on the player, so i have fix the problem by add some code on client.lua and public.lua
+Sometimes, the ```OnPlayerLoaded[QBCore]``` trigger or player spawn event is sent to the client side, but the scripts are not loaded by the anti-dump due to factors like the framework loading the player too quickly, high ping, or a bad connection. As a result, your scripts may not work for the player. I have fixed the issue by adding some code to client.lua and public.lua.
 
-for example:
-
-inside public.lua
+```public.lua```
 ```lua
 local WaitUntilLoaded = true
 
@@ -50,67 +50,61 @@ end
 exports('LoadSuccess', LoadSuccess)
 ```
 
-added this at the last line of your code in client.lua
+Please add the following code at the last line of your ```client.lua```
 
 ```lua
 CreateThread(function() exports['your-resource-name']:LoadSuccess() end)
 
 ```
 
-and you ready to go.
 <br><br>
-Note: i didn't added this code inside full-antidump-ready you should do it manuel.
+Note: I didn’t add this code inside the full-antidump-ready resource, so you will need to do it manually.
 
 
-## new issue
-if player network changed, for example from Ethernet to WIFI, it's will stay on the server, but [sometimes] Fivem reload all client script
-so when Fivem client reload all script, player will got ban because the id of player has registered on `ResourceRequested`, so if you want to fix this issue. you have 2 choices <br>
-`1-` after check player, unban?<br>
-`2-` change `exports['dev-antidump']:BanPlayer(src, reason)` to `DropPlayer(src, reason)` in full-antidump-ready/server.lua:69<br>
-<br><br>Note: this issue is happened only when player network changed.<br>
-for my own server, i have choiced `1`
+# New Issue:
+If a player's network changes (for example, from Ethernet to Wi-Fi), they will stay connected to the server, but sometimes FiveM reloads all client scripts. When this happens, the player may get banned because their ID was already registered on `ResourceRequested`.
+To fix this issue, you have two options:
+* After checking the player, unban them.
+* Change `exports['dev-antidump']:BanPlayer(src, reason)` to `DropPlayer(src, reason) in full-antidump-ready/server.lua:69.`<br>
+
+- This issue only occurs when a player's network changes.<br>
+- For my own server, I chose option 1.
 
 
-# note
-a lot of people adding more resource inside `full-antidump-ready` config, for example `config1.lua` `config2.lua` `client.lua` `client2.lua`<br>
-and his adding me on discord to asking about where is error?<br><br>
-please don't load more resource in one full-antidump-ready because of:
+# Note
+A lot of people are adding multiple resources inside the `full-antidump-ready` config, such as `config1.lua`, `config2.lua`, `client.lua`, `client2.lua`. Many have contacted me on Discord, asking about errors caused by this.<br>
+Please do not load multiple resources in one `full-antidump-ready` because of the following reasons:
+* Your scripts may not work.
+* If they do work, the client may experience timeouts and disconnect.<br>
+<br>- Why does this happen?<br>Let's say you have two config files for two resources:
+* When config1 is loaded, everything works fine.
+* However, when `full-antidump` loads `config2`, it removes `config1` because `config2` also contains `config = {}`.
+<br>
+You might think, `"I’ll just remove config = {} from config2,"` but there's another issue:<br>
+ if `config1` and `config2` share the same key, the values will get overwritten. For example:<br>
 
-* your script will not working
-* if is working can client side take timeout disconnect.
-
-why is not working?
-let we say you have 2 config file for 2 resource.<br>
-if you load config 1 there is no problem<br>
-but when antidump load config 2 it removing the config 1 because your config 2 also has `config = {}`<br>
-now you say ok i will remove `config = {}` from the config 2, yes but there another problem if your config has same key in config 2 it will replaced to config 2 for example
-
-config 1:
+`config1.lua`
 ```lua
 config = {}
 
 config.position = Vector3(0, 0, 0)
-
 ```
-
-config 2:
+`config2.lua`
 ```lua
-config.position = vectro3(0, 0, 0)
-
+config.position = Vector3(0, 0, 0)
 ```
-here position in config 1 will replaced also to position in config 2<br>
+
+In this case, the `position` in `config1` will be replaced by the `position` in `config2`.
 
 
-so please don't load 2 resource in one `full-antidump-ready`, just copy `full-antidump-ready` and make another one for other resources
+If your players are experiencing timeout disconnects, simply use a queue system to resolve the issue. Information about the queue system is available in `server.lua` in `full-antidump-ready`. Also, be sure to update `dev-antidump` for optimal performance.
 
-if your player taking timeout disconnect, just use queue it will resolve the problem, information about queue is on server.lua in `full-antidump-ready`, and make sure to update `dev-antidump`
-
-# contact with me
+# Contact with me
 
 Discord: @devxgaming
 
 # Donate
 Paypal: https://paypal.me/nxdev
 
-Thank you ```วชิรศักดิ์ สีหาภาค``` for your donate ❤️<br>
-Thank you ```Michael V.D``` for your donate ❤️
+Thank you ```ว. สี``` for your donate ❤️<br>
+Thank you ```M. V.D``` for your donate ❤️
