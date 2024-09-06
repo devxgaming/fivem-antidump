@@ -50,7 +50,7 @@ end
 exports('LoadSuccess', LoadSuccess)
 ```
 
-Please add the following code at the last line of your ```client.lua```
+Please add the following code at the last line of your code ```[client.lua]```
 
 ```lua
 CreateThread(function() exports['your-resource-name']:LoadSuccess() end)
@@ -79,8 +79,8 @@ Please do not load multiple resources in one `full-antidump-ready` because of th
 <br>- Why does this happen?<br>Let's say you have two config files for two resources:
 * When config1 is loaded, everything works fine.
 * However, when `full-antidump` loads `config2`, it removes `config1` because `config2` also contains `config = {}`.
-<br>
-You might think, `"I’ll just remove config = {} from config2,"` but there's another issue:<br>
+
+You might think, I'll just remove `config = {}` from `config2`, but there's another issue:<br>
  if `config1` and `config2` share the same key, the values will get overwritten. For example:<br>
 
 `config1.lua`
